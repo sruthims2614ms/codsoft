@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Calculator</title>
+</head>
+<body style="display:flex; justify-content:center;align-items:center; height:100vh;">
+<div style="text-align: center;border: 5px solid black;padding:20px; border-radius:10px; width:300px;background-color:beige;font-size:30px">  
+        
+    
+    <h1>Calculator</h1>
+
+    <form action="{% url 'calculate' %}" method="post" >
+        {% csrf_token %}
+        <input type="number" name="num1" placeholder= "Enter first number" required style="border: 3px solid black;font-size: 20px;"><br><br>
+        <input type="number" name="num2" placeholder= "Enter second number" required  style="border: 3px solid black;font-size: 20px;"><br><br>
+        <select name="operation"  style="border: 3px solid black;font-size: 20px;">
+            <option value="add">Addition (+)</option>
+            <option value="subtract">Subtraction (-)</option>
+            <option value="multiply">Multiplication (*)</option>
+            <option value="divide">Division (/)</option>
+        </select><br><br>
+        <button type="submit" style="background: rgb(190, 121, 87);font-size: 20px;"><b>Calculate</b></button>
+    </form>
+</div>
+    
+</body>
+</html>
