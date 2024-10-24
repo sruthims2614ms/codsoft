@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+</head>
+<body style="display:flex; justify-content:center;align-items:center; height:100vh;">
+<div style="text-align: center;border: 5px solid black;padding:20px; border-radius:20px; width:550px;background-color:rgb(228, 190, 232);font-size:30px">
+    <h1>Rock Paper Scissors</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button name="choice" value="rock" style="width:150px ;height:30px;background-color: rgb(211, 178, 135);">Rock</button>
+        <button name="choice" value="paper"style="width:150px ;height:30px;background-color: rgb(211, 178, 135);">Paper</button>
+        <button name="choice" value="scissors"style="width:150px ;height:30px;background-color: rgb(211, 178, 135);">Scissors</button>
+    </form>
+
+    {% if result %}
+       
+        <p>Your choice: <b>{{ userchoice }}</b></p>
+        <p>Computer's choice: <b>{{ computerchoice }}</b></p>
+        <h2>{{ result }}</h2>
+        <h4>Scores</h4>
+        <h5>You: {{ userscore }} <br>   Computer: {{ computerscore }}</h5>
+        <form method="post" action="{% url 'reset' %}">
+            {% csrf_token %}
+            <button type="submit" style="width:150px ;height:30px;background-color: rgb(221, 105, 181);"><b>Play Again</b></button>
+        </form>
+    {% endif %}
+</body>
+</div>
+</html>
