@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<body style="display:flex; justify-content:center;align-items:center; height:100vh;">
+ <div style="text-align: center;border: 5px solid black;padding:20px; border-radius:20px; width:650px;background-color:rgb(191, 238, 116);font-size:30px"> 
+    <h2 style="font-family:sans-serif;">Random Password Generator</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="length">Password Length:</label>
+        <input type="number" id="length" name="length" min="6"  required>
+        <button type="submit"><b>Generate Password</b></button>
+    </form>
+    {% if password %}
+        <h3>Generated Password</h3> <h2 style="color: rgb(140, 14, 14);"><span>{{ password }}</span></h2>
+    {% endif %}
+</body>
+</div>
+</html>
